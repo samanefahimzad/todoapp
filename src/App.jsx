@@ -63,3 +63,48 @@ function handleChange(e) {
         onChange={handleChange}
         placeholder="New task"
       />
+       <button
+        className="add-button"
+        type="button"
+        onClick={handleAdd}
+        aria-label="Add task"
+      >
+        <img src={addIcon} alt="" />
+      </button>
+
+      <ul className="todo-list">
+        {todos.map(function (todo) {
+          return (
+            <li key={todo.id}>
+              <span className={todo.done ? "todo--completed" : ""}>
+                {todo.text}
+              </span>
+
+              <input
+                type="checkbox"
+                className="custom-checkbox"
+                checked={todo.done}
+                onChange={function () {
+                  handleToggle(todo.id);
+                }}
+              />
+
+              <button
+                className="delete-button"
+                type="button"
+                onClick={function () {
+                  handleRemove(todo.id);
+                }}
+                aria-label="Delete task"
+              >
+                <img src={deleteIcon} alt="" />
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </main>
+  );
+}
+
+export default App;
