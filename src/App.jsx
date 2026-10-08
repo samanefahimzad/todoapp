@@ -1,4 +1,7 @@
 import { useState } from "react";
+import "./App.css";
+import deleteIcon from "./assets/860829.png";
+import addIcon from "./assets/1273767.png";
 
 function App() {
   const [todos, setTodos] = useState([
