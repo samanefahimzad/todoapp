@@ -7,4 +7,31 @@ function App() {
     { id: 3, text: "Add images to the page", done: false },
   ]);
  const [draft, setDraft] = useState("");
-}
+function handleChange(e) {
+    setDraft(e.target.value);
+  }
+
+  function handleAdd() {
+    const text = draft.trim();
+
+    if (text === "") return;
+
+    setTodos([
+      ...todos,
+      {
+        id: Date.now(),
+        text: text,
+        done: false,
+      },
+    ]);
+
+    setDraft("");
+  }
+
+  function handleRemove(id) {
+    setTodos(
+      todos.filter(function (todo) {
+        return todo.id !== id;
+      })
+    );
+  }
