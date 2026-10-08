@@ -35,3 +35,31 @@ function handleChange(e) {
       })
     );
   }
+  
+  function handleToggle(id) {
+    setTodos(
+      todos.map(function (todo) {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            done: !todo.done,
+          };
+        }
+
+        return todo;
+      })
+    );
+  }
+
+  return (
+    <main className="list">
+      <h1>My To-Do List</h1>
+
+      <p>Number of tasks: {todos.length}</p>
+
+      <input
+        type="text"
+        value={draft}
+        onChange={handleChange}
+        placeholder="New task"
+      />
