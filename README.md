@@ -1,16 +1,21 @@
-# React + Vite
+Frågor om koden:
+Jag använder useState för att hålla reda på mina uppgifter i appen.
+todos är min lista med alla uppgifter. Varje uppgift har ett id, en text och done. done visar om uppgiften är klar eller inte. false betyder inte klar och true betyder klar.
+Jag har också draft, som håller reda på det jag skriver i input-fältet.
+När jag lägger till, tar bort eller ändrar en uppgift använder jag setTodos för att ändra listan. När informationen ändras uppdaterar React sidan automatiskt så att jag ser den nya informationen.
+Till exempel när jag klickar på checkboxen ändras done, och då ändras uppgiften direkt på sidan.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Man ska inte använda .push() eftersom den ändrar den gamla arrayen direkt.
+I React skapar jag istället en ny array när jag ändrar mina uppgifter.
+När jag lägger till använder jag ...todos och setTodos.
+När jag tar bort använder jag filter för att skapa en ny lista utan uppgiften.
 
-Currently, two official plugins are available:
+Kodgranskning:
+Koden försöker lägga till en ny uppgift i listan, men .push() ändrar den gamla arrayen direkt, vilket man inte ska göra med state i React. Ett bättre sätt är att skapa en ny array med ...todos och sedan lägga till den nya uppgiften.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+function addTodo(todos, text) {
+  return [...todos, text];
+}
+Problemlösning & Reflektion:
+I början var det mycket text i instruktionen och jag hade svårt att förstå vad jag skulle göra. Jag använde AI för att få en enklare förklaring och för att dela upp uppgiften i mindre delar. Det gjorde det lättare för mig att förstå vad varje del handlade om och hur allt hänger ihop. Sedan kunde jag ta en del i taget och försöka lösa den själv.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
