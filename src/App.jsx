@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import "./App.css";
 import deleteIcon from "./assets/860829.png";
@@ -18,7 +19,6 @@ function handleChange(e) {
     const text = draft.trim();
 
     if (text === "") return;
-
     setTodos([
       ...todos,
       {
@@ -35,6 +35,7 @@ function handleChange(e) {
     setTodos(
       todos.filter(function (todo) {
         return todo.id !== id;
+
       })
     );
   }
@@ -48,7 +49,6 @@ function handleChange(e) {
             done: !todo.done,
           };
         }
-
         return todo;
       })
     );

@@ -1,3 +1,6 @@
+https://funet-my.sharepoint.com/:v:/g/personal/3ggyhmu26_fahisa_folkuniversitetet_nu/IQBW8X2PeCjrT5MJhEG75tQKAXnX8KraVdKPl5-Y2BlcbCs?e=PhJJ1o
+
+
 Frågor om koden:
 Jag använder useState för att hålla reda på mina uppgifter i appen.
 todos är min lista med alla uppgifter. Varje uppgift har ett id, en text och done. done visar om uppgiften är klar eller inte. false betyder inte klar och true betyder klar.
